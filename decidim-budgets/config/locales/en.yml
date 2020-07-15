@@ -169,9 +169,12 @@ en:
         project:
           add: Add
           count:
+            one: "%{count} support"
+            other: "%{count} supports"
+          remove: Remove
+          supports:
             one: support
             other: supports
-          remove: Remove
           view: View
           you_voted: You voted
         project_budget_button:
