@@ -6,6 +6,8 @@ module Decidim
       # A form object to be used when admin users want to create a proposal.
       class ProposalForm < Decidim::Form
         include Decidim::ApplicationHelper
+        include Decidim::TranslatableAttributes
+
         mimic :proposal
 
         attribute :title, String
@@ -42,7 +44,8 @@ module Decidim
           self.category_id = model.categorization.decidim_category_id
           self.scope_id = model.decidim_scope_id
 
-          @suggested_hashtags = Decidim::ContentRenderers::HashtagRenderer.new(model.body).extra_hashtags.map(&:name).map(&:downcase)
+          body = translated_attribute(model.body)
+          @suggested_hashtags = Decidim::ContentRenderers::HashtagRenderer.new(body).extra_hashtags.map(&:name).map(&:downcase)
         end
 
         alias component current_component
