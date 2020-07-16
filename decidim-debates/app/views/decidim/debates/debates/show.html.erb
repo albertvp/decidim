@@ -39,7 +39,14 @@ edit_link(
             <%= l debate.start_time, format: "%H:%M" %> - <%= l debate.end_time, format: "%H:%M" %>
           </div>
         <% end %>
-        <%= render partial: "decidim/shared/follow_button", locals: { followable: debate, large: false } %>
+
+        <% if endorsements_enabled? %>
+          <div class="column small-9 collapse">
+            <%= endorsement_buttons_cell(@proposal) %>
+          </div>
+        <% end %>
+
+        <%= follow_button_for(debate) %>
       </div>
     </div>
     <%= resource_reference(debate) %>
