@@ -41,6 +41,7 @@ module Decidim
         params = {
           author: form.current_user,
           decidim_user_group_id: form.user_group_id,
+          scope: form.scope,
           category: form.category,
           title: i18n_field(form.title),
           description: i18n_field(form.description),
