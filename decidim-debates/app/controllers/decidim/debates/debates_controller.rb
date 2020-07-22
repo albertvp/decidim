@@ -76,6 +76,7 @@ module Decidim
           search_text: "",
           order_start_time: "asc",
           origin: "all",
+          scope_id: "",
           category_id: ""
         }
       end
